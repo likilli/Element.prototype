@@ -2,15 +2,17 @@ Element.prototype.before = function(node)
 {
 	var frag = new DocumentFragment
 
-	for(var node of arguments)
+	for (var node of arguments)
 	{
 		if (typeof node == "string")
 		{
-			node =/^<\w+>$/.test(node)
-				? this.document.createElement()
+			node = /^<\w+>$/.test(node)
+				? this.ownerDocument.createElement(node.slice(1, -1))
 				: new Text(node)
 		}
-		fragm.append(node)
+
+		frag.append(node)
 	}
+
 	this.parentNode.insertBefore(frag, this)
 }
