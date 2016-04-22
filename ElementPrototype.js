@@ -16,3 +16,8 @@ Element.prototype.before = function(node)
 
 	this.parentNode.insertBefore(frag, this)
 }
+Element.prototype.remove = function()
+{
+		if (this.parentNode)
+	 	this.parentNode.removeChild(this)
+}
